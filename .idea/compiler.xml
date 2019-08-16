@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="Bitrix24_Cucumber_Lions" />
         <module name="OnlineSpring2019Cucumber" />
       </profile>
     </annotationProcessing>
