@@ -11,27 +11,27 @@ import org.openqa.selenium.support.PageFactory;
 public class LoginPage {
     public LoginPage(){PageFactory.initElements(Driver.getDriver(), this);}
 
-    @FindBy(id = "prependedInput")
+    @FindBy(xpath = "//input[@class='login-inp'][@type='text']")
     @CacheLookup
     public WebElement userNameElement;
 
-    @FindBy(name = "_password")
+    @FindBy(xpath = "//input[@class='login-inp'][@type='password']")
     @CacheLookup
     public WebElement passwordElement;
 
-    @FindBy(id="_submit")
+    @FindBy(className="login-btn")
     public WebElement loginButtonElement;
 
-    @FindBy(className = "custom-checkbox__icon")
+    @FindBy(id = "USER_REMEMBER")
     public WebElement rememberMeElement;
 
-    @FindBy(partialLinkText = "Forgot your password?")
+    @FindBy(className = "login-link-forgot-pass")
     public WebElement forgotPasswordElement;
 
-    @FindBy(tagName = "h2")
-    public WebElement titleElement;
+//    @FindBy(tagName = "h2")
+//    public WebElement titleElement;
 
-    @FindBy(css = "[class='alert alert-error'] > div")
+    @FindBy(className = "errortext")
     public WebElement errorMessageElement;
 
 
@@ -54,15 +54,15 @@ public class LoginPage {
 
         String username = "";
         String password = "";
-        if (role.equalsIgnoreCase("driver")){
-            username = ConfigurationReader.getProperty("driverusername");
-            password = ConfigurationReader.getProperty("driverpassword");
-        }else if (role.equalsIgnoreCase("store manager")){
-            username = ConfigurationReader.getProperty("storemanagerusername");
-            password = ConfigurationReader.getProperty("storemanagerpassword");
-        }else if (role.equalsIgnoreCase("sales manager")){
-            username = ConfigurationReader.getProperty("salesmanagerusername");
-            password = ConfigurationReader.getProperty("salesmanagerpassword");
+        if (role.equalsIgnoreCase("help desk")){
+            username = ConfigurationReader.getProperty("helpdeskusername");
+            password = ConfigurationReader.getProperty("helpdeskpassword");
+        }else if (role.equalsIgnoreCase("marketing")){
+            username = ConfigurationReader.getProperty("marketingusername");
+            password = ConfigurationReader.getProperty("marketingpassword");
+        }else if (role.equalsIgnoreCase("hr")){
+            username = ConfigurationReader.getProperty("hrusername");
+            password = ConfigurationReader.getProperty("hrpassword");
         }
 
         userNameElement.sendKeys(username);

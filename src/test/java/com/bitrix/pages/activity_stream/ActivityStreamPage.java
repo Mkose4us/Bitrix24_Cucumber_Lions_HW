@@ -9,8 +9,8 @@ public class ActivityStreamPage extends BasePage {
 
     Pages pages = new Pages();
 
-    @FindBy(xpath = "//label[text()='Page:']/following-sibling::ul//input")
-    public WebElement pageNumber;
+//    @FindBy(xpath = "//label[text()='Page:']/following-sibling::ul//input")
+//    public WebElement pageNumber;
 
 
 

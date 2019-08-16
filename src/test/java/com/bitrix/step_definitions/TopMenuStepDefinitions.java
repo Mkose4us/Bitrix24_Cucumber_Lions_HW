@@ -7,9 +7,9 @@ public class TopMenuStepDefinitions {
     Pages pages = new Pages();
 
 
-    @Then("user navigates to {string} and {string}")
-    public void user_navigates_to_and(String tab, String module) {
-        pages.dashboardPage().navigateToModule(tab, module);
+    @Then("user navigates to {string}")
+    public void user_navigates_to(String module) {
+        pages.activityStreamPage().navigateToModule(module);
 
     }
 

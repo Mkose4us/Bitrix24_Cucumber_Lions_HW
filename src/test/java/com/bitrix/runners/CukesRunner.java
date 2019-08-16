@@ -17,8 +17,8 @@ import org.junit.runner.RunWith;
         //tags = {"@vehicles"},
         //tags = {"@driver"},
         //tags = {"@navigation"},
-        features = {"src/test/resources/features"  // to specify where the features are
-
+        features = {"src/test/resources/features/login",  // to specify where the features are
+                "src/test/resources/features/topmenu"
         },
 
         // feature contains scenarios
@@ -32,7 +32,7 @@ import org.junit.runner.RunWith;
 
         // dry run = to generate step definitions automatically
         // you will see them in the console output
-        dryRun = true
+        dryRun = false
 )
 public class CukesRunner {
 
