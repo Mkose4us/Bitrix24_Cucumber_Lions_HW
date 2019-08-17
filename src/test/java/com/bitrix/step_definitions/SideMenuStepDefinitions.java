@@ -3,7 +3,7 @@ package com.bitrix.step_definitions;
 import com.bitrix.utilities.Pages;
 import cucumber.api.java.en.Then;
 
-public class TopMenuStepDefinitions {
+public class SideMenuStepDefinitions {
     Pages pages = new Pages();
 
 

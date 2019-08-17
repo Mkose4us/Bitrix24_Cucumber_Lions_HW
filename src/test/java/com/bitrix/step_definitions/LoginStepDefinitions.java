@@ -22,7 +22,6 @@ public class LoginStepDefinitions {
         pages.loginPage().login(role);}
 
 
-
     @Then("user verifies that {string} page name is displayed")
     public void user_verifies_that_page_name_is_displayed(String expected) {
         Assert.assertEquals(expected, pages.activityStreamPage().getPageSubTitle());
@@ -34,11 +33,11 @@ public class LoginStepDefinitions {
         Driver.closeDriver();
     }
 
-//    @Then("user logs in with {string} username and {string} password")
-//    public void user_logs_in_with_username_and_password(String string, String string2) {
-//        pages.loginPage().login(string, string2);
-//
-//    }
+    @Then("user logs in with {string} username and {string} password")
+    public void user_logs_in_with_username_and_password(String string, String string2) {
+        pages.loginPage().login(string, string2);
+
+    }
 
     @Then("user verifies that {string} warning message is displayed")
     public void user_verifies_that_warning_message_is_displayed(String expected) {

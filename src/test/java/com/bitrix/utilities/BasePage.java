@@ -36,7 +36,7 @@ public abstract class BasePage {
 
     public void navigateToModule(String module) {
         //String tabLocator = "//span[normalize-space()='" + tab + "' and contains(@class, 'title title-level-1')]";
-        String moduleLocator = "//ul//li//a[@title='" + module + "']";
+        String moduleLocator = "//a[@title='" + module + "']";
 
         try {
             BrowserUtils.waitForPresenceOfElement(By.xpath(moduleLocator), Integer.valueOf(ConfigurationReader.getProperty("SHORT_WAIT")));

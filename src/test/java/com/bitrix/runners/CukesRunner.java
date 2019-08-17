@@ -12,13 +12,11 @@ import org.junit.runner.RunWith;
                 "html:target/default-cucumber-reports"},
         //tags = {" ~@negative"},
         //tags = {"  not @negative"},
-        //tags = {"@storemanager or @negative"},
-        //tags = {"@storemanager"},
-        //tags = {"@vehicles"},
-        //tags = {"@driver"},
         //tags = {"@navigation"},
-        features = {"src/test/resources/features/login",  // to specify where the features are
-                "src/test/resources/features/topmenu"
+        features = { // to specify where the features are
+                "src/test/resources/features/login",
+                "src/test/resources/features/sidemenu",
+                "src/test/resources/features/activitystream"
         },
 
         // feature contains scenarios
