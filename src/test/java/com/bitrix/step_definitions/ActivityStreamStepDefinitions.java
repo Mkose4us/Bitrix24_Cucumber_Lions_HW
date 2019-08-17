@@ -16,6 +16,7 @@ public class ActivityStreamStepDefinitions {
             case "MESSAGE" :
                 break;
             case "TASK":
+                BrowserUtils.waitForClickablility(pages.activityStreamPage().topMenu_Task,2000);
                 pages.activityStreamPage().topMenu_Task.click();
                 break;
             case "EVENT" :
@@ -54,14 +55,15 @@ public class ActivityStreamStepDefinitions {
 
     @When("user clicks Checklist")
     public void user_clicks_Checklist() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
+        BrowserUtils.waitForStaleElement(pages.activityStreamPage().openchecklistButton);
+        pages.activityStreamPage().openchecklistButton.click();
+
     }
 
     @Then("verify that Checklist window is displayed")
     public void verify_that_Checklist_window_is_displayed() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
+        BrowserUtils.waitForStaleElement(pages.activityStreamPage().checklistPane);
+        Assert.assertTrue(pages.activityStreamPage().checklistPane.isDisplayed());
     }
 
     @When("user clicks Deadline field and selects a date")

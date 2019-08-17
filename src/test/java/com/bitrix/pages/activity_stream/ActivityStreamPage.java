@@ -23,5 +23,11 @@ public class ActivityStreamPage extends BasePage {
     @FindBy(css="div[id^='feed-post-contentview'] div[class='feed-task-info-text'] div:nth-child(1) a")
     public List<WebElement> activityStreamTaskList;
 
+    @FindBy(css="[data-bx-id='task-edit-toggler'][data-target='checklist']")
+    public WebElement openchecklistButton;
+
+    @FindBy(css="[data-bx-id='task-edit-checklist']")
+    public WebElement checklistPane;
+
 
 }
