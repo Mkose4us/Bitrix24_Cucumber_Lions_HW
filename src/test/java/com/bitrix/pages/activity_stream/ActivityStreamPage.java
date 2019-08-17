@@ -20,13 +20,8 @@ public class ActivityStreamPage extends BasePage {
     @FindBy(id = "blog-submit-button-save")
     public WebElement sendButton;
 
-    @FindBy(css="div[class^='feed-post-block']")
-    public List<WebElement> activityStreamList;
+    @FindBy(css="div[id^='feed-post-contentview'] div[class='feed-task-info-text'] div:nth-child(1) a")
+    public List<WebElement> activityStreamTaskList;
 
-
-    public String getTaskTitle(int index){
-
-        return "No Title";
-    }
 
 }

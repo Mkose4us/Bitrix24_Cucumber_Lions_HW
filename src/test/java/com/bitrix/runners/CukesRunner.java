@@ -9,14 +9,15 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
 
         plugin ={"json:target/cucumber.json",
-                "html:target/default-cucumber-reports"},
+                 "html:target/default-cucumber-reports"},
         //tags = {" ~@negative"},
         //tags = {"  not @negative"},
         //tags = {"@navigation"},
         features = { // to specify where the features are
-                "src/test/resources/features/login",
-                "src/test/resources/features/sidemenu",
-                "src/test/resources/features/activitystream"
+                "src/test/resources/features",
+//                "src/test/resources/features/login",
+//                "src/test/resources/features/sidemenu",
+//                "src/test/resources/features/activitystream"
         },
 
         // feature contains scenarios

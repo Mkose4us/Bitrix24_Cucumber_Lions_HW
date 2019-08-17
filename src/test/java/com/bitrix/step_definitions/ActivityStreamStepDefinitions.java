@@ -4,6 +4,7 @@ import com.bitrix.utilities.BrowserUtils;
 import com.bitrix.utilities.Pages;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.junit.Assert;
 
 public class ActivityStreamStepDefinitions {
 
@@ -16,7 +17,6 @@ public class ActivityStreamStepDefinitions {
                 break;
             case "TASK":
                 pages.activityStreamPage().topMenu_Task.click();
-                BrowserUtils.waitForStaleElement(pages.activityStreamPage().taskTitleInput);
                 break;
             case "EVENT" :
 
@@ -27,9 +27,11 @@ public class ActivityStreamStepDefinitions {
         }
     }
 
-    @When("enters a task name")
-    public void enters_a_task_name() {
-        pages.activityStreamPage().taskTitleInput.sendKeys("Sample Task Title");
+
+    @When("enters a {string}")
+    public void enters_a(String task_name) {
+ //       BrowserUtils.waitForStaleElement(pages.activityStreamPage().taskTitleInput);
+        pages.activityStreamPage().taskTitleInput.sendKeys(task_name);
     }
 
     @When("user clicks {string} button")
@@ -40,10 +42,14 @@ public class ActivityStreamStepDefinitions {
         }
     }
 
-    @Then("verify that the new task listed on activity stream")
-    public void verify_that_the_new_task_listed_on_activity_stream() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
+    @Then("verify that task {string} listed on activity stream")
+    public void verify_that_task_listed_on_activity_stream(String expectedTask){
+        BrowserUtils.waitForStaleElement(pages.activityStreamPage().activityStreamTaskList.get(0));
+        String actualTask=pages.activityStreamPage().activityStreamTaskList.
+                get(0).getText().trim();
+        System.out.println(actualTask);
+        Assert.assertEquals(expectedTask,actualTask);
+
     }
 
     @When("user clicks Checklist")
