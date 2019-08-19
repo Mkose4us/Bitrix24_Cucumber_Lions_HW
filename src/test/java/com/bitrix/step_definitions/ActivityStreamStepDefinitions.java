@@ -2,11 +2,14 @@ package com.bitrix.step_definitions;
 
 import com.bitrix.utilities.BrowserUtils;
 import com.bitrix.utilities.Pages;
+import com.github.javafaker.Faker;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.Keys;
 
 public class ActivityStreamStepDefinitions {
+    public static String itemName;
 
     Pages pages = new Pages();
 
@@ -46,9 +49,10 @@ public class ActivityStreamStepDefinitions {
     @Then("verify that task {string} listed on activity stream")
     public void verify_that_task_listed_on_activity_stream(String expectedTask){
         BrowserUtils.waitForStaleElement(pages.activityStreamPage().activityStreamTaskList.get(0));
+       // BrowserUtils.waitForVisibility(pages.activityStreamPage().activityStreamTaskList.get(0),10);
         String actualTask=pages.activityStreamPage().activityStreamTaskList.
                 get(0).getText().trim();
-        System.out.println(actualTask);
+        System.out.println("Actual Task NAme Added is : " + actualTask);
         Assert.assertEquals(expectedTask,actualTask);
 
     }
@@ -77,6 +81,26 @@ public class ActivityStreamStepDefinitions {
         // Write code here that turns the phrase above into concrete actions
         throw new cucumber.api.PendingException();
     }
+
+
+    @Then("user enters a checklist item")
+    public void user_enters_a_checklist_item(){
+        Faker faker = new Faker();
+        itemName = faker.funnyName().name().trim();
+        System.out.println("Item Name produced : " + itemName);
+        pages.activityStreamPage().checklistInputElement.sendKeys(itemName.trim(), Keys.ENTER);
+
+    }
+
+
+    @Then("verify that checklist item is added to the CheckList")
+    public void verify_that_checklist_item_is_added_to_the_CheckList() {
+
+        Assert.assertEquals(itemName, pages.activityStreamPage().checklistItems.get(pages.activityStreamPage().checklistItems.size()-1).getText().trim());
+
+    }
+
+
 
 
 

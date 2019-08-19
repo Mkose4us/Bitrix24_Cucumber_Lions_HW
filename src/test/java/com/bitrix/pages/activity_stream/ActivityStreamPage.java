@@ -20,7 +20,9 @@ public class ActivityStreamPage extends BasePage {
     @FindBy(id = "blog-submit-button-save")
     public WebElement sendButton;
 
-    @FindBy(css="div[id^='feed-post-contentview'] div[class='feed-task-info-text'] div:nth-child(1) a")
+    //@FindBy(css="div[id^='feed-post-contentview'] div[class='feed-task-info-text'] div:nth-child(1) a")
+    @FindBy(xpath="//div[@class='feed-task-info-text']//div[1]//span//a")
+    //public WebElement activityStreamTaskList;
     public List<WebElement> activityStreamTaskList;
 
     @FindBy(css="[data-bx-id='task-edit-toggler'][data-target='checklist']")
@@ -28,6 +30,13 @@ public class ActivityStreamPage extends BasePage {
 
     @FindBy(css="[data-bx-id='task-edit-checklist']")
     public WebElement checklistPane;
+
+    //@FindBy(className="js-id-checklist-is-form-title task-checklist-field-add")
+    @FindBy(xpath="//input[@type='text'][@class='js-id-checklist-is-form-title task-checklist-field-add']")
+    public WebElement checklistInputElement;
+
+    @FindBy(xpath="(//span[@class='js-id-checklist-is-i-title '])")
+    public List <WebElement> checklistItems;
 
 
 }
