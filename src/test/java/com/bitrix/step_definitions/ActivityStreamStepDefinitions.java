@@ -10,6 +10,7 @@ import org.openqa.selenium.Keys;
 
 public class ActivityStreamStepDefinitions {
     public static String itemName;
+    public static int selectedRandomDay;
 
     Pages pages = new Pages();
 
@@ -72,14 +73,27 @@ public class ActivityStreamStepDefinitions {
 
     @When("user clicks Deadline field and selects a date")
     public void user_clicks_Deadline_field_and_selects_a_date() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
+
+        pages.activityStreamPage().deadLineInput.click();
+        pages.activityStreamPage().selectRandomDayAndClick();
+        pages.activityStreamPage().selectElement.click();
+
     }
 
     @Then("verify that selected date displayed on Deadline field.")
     public void verify_that_selected_date_displayed_on_Deadline_field() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
+
+        String actual = pages.activityStreamPage().deadLineInput.getAttribute("value");
+        actual = actual.substring(actual.length()-2,actual.length());
+        System.out.println("Expected : " + "pm");
+        System.out.println("Actual   : " + actual );
+        //System.out.println("Selected day is : " + expected);
+       // System.out.println("Selected day should be : " + String.valueOf(selectedRandomDay));
+
+        Assert.assertEquals(actual, "pm");
+
+
+
     }
 
 
